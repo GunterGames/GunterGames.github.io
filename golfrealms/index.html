@@ -31,6 +31,13 @@ li { margin-bottom: 6px; }
 strong { color: #ffffff; }
 a { color: #5fe08a; }
 .button { display: inline-block; background: #28c857; color: #ffffff; font-weight: 700; padding: 12px 26px; border-radius: 14px; text-decoration: none; margin-top: 6px; }
+.studio { display: inline-flex; align-items: center; gap: 6px; color: #8fa898; text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 26px; }
+.studio:hover { color: #ffffff; text-decoration: none; }
+.store { display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #0b1d13; font-weight: 800; padding: 12px 22px; border-radius: 14px; text-decoration: none; margin-top: 22px; }
+.store:hover { text-decoration: none; background: #e9f7ee; }
+.store svg { width: 18px; height: 18px; }
+.shots { display: flex; gap: 12px; overflow-x: auto; padding: 4px 2px 14px; margin: 0 0 22px; scroll-snap-type: x mandatory; }
+.shots img { flex: 0 0 auto; width: 180px; height: auto; border-radius: 16px; scroll-snap-align: start; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
 footer { text-align: center; padding: 30px 20px; color: #6f8a78; font-size: 0.9rem; }
 footer a { color: #8fa898; }
 @media (max-width: 480px) { section { padding: 22px 20px; } h1 { font-size: 1.8rem; } .hero h1 { font-size: 2.1rem; } }
@@ -39,13 +46,16 @@ footer a { color: #8fa898; }
 <body>
     <div class="container">
         <header class="hero">
+            <a class="studio" href="../">&larr; Gunter Games</a>
             <img class="app-icon" src="icon.png" alt="Golf Realms app icon">
             <h1>Golf Realms</h1>
-            <p class="tagline">Golf &amp; mini golf adventures</p>
+            <p class="tagline">Real golf. Unreal places.</p>
+            <a class="store" href="https://apps.apple.com/app/id6822476463"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>Download on the App Store</a>
         </header>
+<div class="shots" aria-label="Screenshots"><img src="shots/01-flyC.jpg" width="360" height="782" loading="lazy" alt="Golf Realms screenshot"><img src="shots/02-tracer.jpg" width="360" height="782" loading="lazy" alt="Golf Realms screenshot"><img src="shots/03-putt.jpg" width="360" height="782" loading="lazy" alt="Golf Realms screenshot"><img src="shots/04-candy2.jpg" width="360" height="782" loading="lazy" alt="Golf Realms screenshot"><img src="shots/06-lunar.jpg" width="360" height="782" loading="lazy" alt="Golf Realms screenshot"><img src="shots/10-tour.jpg" width="360" height="782" loading="lazy" alt="Golf Realms screenshot"></div>
 <section>
 <h2>About the game</h2>
-<p>Golf you swing with one finger. Play 17 full-size courses, from tree-lined parkland to islands floating above the clouds and low-gravity links on the Moon, and 6 themed mini golf parks. Read every break with the slope grid, take on a Tour season, and play friends online.</p>
+<p>Golf you swing with one finger. Play 20 full-size courses, from tree-lined parkland and seaside cliffs to dinosaur islands, rivers of lava and low-gravity links on the Moon, plus 7 themed mini golf parks. Watch every shot fly with its tracer and numbers, read every break with the slope grid, take on the Daily Cup and a Tour season, and play your friends live online.</p>
 </section>
 <section>
 <h2>Common questions</h2>
@@ -54,7 +64,7 @@ footer a { color: #8fa898; }
 <h3>How do I read a putt?</h3>
 <p>On the green, the grid shows the slope: the beads flow downhill, and the mark on the power bar is the pace that stops the ball at the cup on flat ground. Swing past it uphill and short of it downhill.</p>
 <h3>How do I unlock more courses?</h3>
-<p>Earn stars on holes (finish, beat par, complete the hole's challenge). Each course opens at a star total shown on its card.</p>
+<p>Earn stars on holes (finish, beat par, complete the hole's challenge). Each course opens at a star total shown on its card. Three premium courses (Heron Marsh, Frostpeak Summit and Crystal Crater) are unlocked with gems instead.</p>
 <h3>What is the Daily Cup?</h3>
 <p>Every day (midnight to midnight UTC) everyone plays the same front nine in the same wind, and gets one round: once you start it, you can resume it but not start again. Rounds go on a shared board, and when the day ends the top finishers win coins and gems. Play the cup seven days in a row for a streak bonus.</p>
 <h3>How do tour season prizes work?</h3>
@@ -62,9 +72,9 @@ footer a { color: #8fa898; }
 <h3>Why is there no putting line?</h3>
 <p>Reading the green is part of the game: putts show a short aim line from the ball, and the slope grid shows how the green moves. The mark on the power bar is the pace that stops the ball at the cup on flat ground, so swing past it uphill and short of it downhill.</p>
 <h3>How do I play with friends?</h3>
-<p>Tap Play Online, create a room and share the room code (up to 4 players). Everyone needs the same version of Golf Realms. You can also play against the computer from the same screen.</p>
+<p>On Home tap Play golf, then Online: create a room and share the room code (up to 4 players). Everyone needs the same version of Golf Realms. You can also play against the computer from the same screen.</p>
 <h3>Can I change my name?</h3>
-<p>Yes: on any course leaderboard tap Change, or edit it on the Play Online screen. Names that contain slurs or swearing aren't accepted.</p>
+<p>Yes: on any course leaderboard tap Change, or edit it on the Online screen. Names that contain slurs or swearing aren't accepted.</p>
 <h3>Someone on a leaderboard has an offensive name or an impossible score.</h3>
 <p>Open their round on the leaderboard and tap Report. You won't see their rounds again, and rounds that several players report are taken down for review.</p>
 <h3>How do I delete my online scores?</h3>
@@ -84,6 +94,6 @@ footer a { color: #8fa898; }
 <a class="button" href="mailto:guntergamesdev@gmail.com">Email support</a>
 </section>
     </div>
-    <footer>&copy; 2026 Gunter Games &middot; <a href="./">Golf Realms Support</a> &middot; <a href="privacy.html">Privacy Policy</a></footer>
+    <footer>&copy; 2026 <a href="../">Gunter Games</a> &middot; <a href="./">Golf Realms</a> &middot; <a href="privacy.html">Privacy Policy</a></footer>
 </body>
 </html>

@@ -3,241 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ballistic: Brick Breaker - Support</title>
+    <title>Gunter Games</title>
+    <meta name="description" content="Gunter Games makes mobile games: Golf Realms and Ballistic: Brick Breaker. Support, privacy and contact.">
+    <link rel="icon" href="golfrealms/icon.png">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0b1220; --panel: rgba(255, 255, 255, 0.05); --line: rgba(255, 255, 255, 0.10);
+            --text: #ffffff; --soft: #c3cbd9; --dim: #8592a8;
+            --golf: #5fe08a; --golf-deep: #0f2a1a; --ballistic: #8f9ad8; --ballistic-deep: #1c1f3e;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
-            color: #ffffff;
-            min-height: 100vh;
-            line-height: 1.6;
+            font-family: ui-rounded, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: radial-gradient(1200px 600px at 15% -10%, #16304f 0%, transparent 60%),
+                        radial-gradient(900px 500px at 100% 0%, #1d1a3f 0%, transparent 55%), var(--bg);
+            color: var(--text); min-height: 100vh; line-height: 1.6;
         }
+        a { color: inherit; }
+        .container { max-width: 960px; margin: 0 auto; padding: 56px 20px 24px; }
+        header { margin-bottom: 44px; }
+        .wordmark { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.32em; color: var(--dim); text-transform: uppercase; }
+        h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 800; line-height: 1.1; margin: 14px 0 12px; text-wrap: balance; }
+        .lede { color: var(--soft); font-size: 1.1rem; max-width: 58ch; }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+        .games { display: grid; gap: 22px; }
+        .game { border-radius: 24px; border: 1px solid var(--line); overflow: hidden; display: grid; }
+        .game.golf { background: linear-gradient(150deg, #13402a 0%, var(--golf-deep) 70%); grid-template-columns: 1.15fr 1fr; }
+        .game.ballistic { background: linear-gradient(150deg, #2a2d62 0%, var(--ballistic-deep) 75%); }
+        .game-body { padding: 32px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+        .game-title { display: flex; align-items: center; gap: 16px; }
+        .icon { width: 72px; height: 72px; border-radius: 17px; flex: 0 0 auto; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
+        .game h2 { font-size: 1.7rem; line-height: 1.15; }
+        .kicker { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+        .golf .kicker { color: var(--golf); }
+        .ballistic .kicker { color: var(--ballistic); }
+        .game p { color: var(--soft); max-width: 60ch; }
+        .facts { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+        .facts li { font-size: 0.85rem; font-weight: 700; color: var(--text); background: rgba(255, 255, 255, 0.08); padding: 5px 11px; border-radius: 999px; }
+        .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 13px; font-weight: 800; text-decoration: none; font-size: 0.95rem; }
+        .btn svg { width: 17px; height: 17px; }
+        .btn.primary { background: #ffffff; color: #0b1220; }
+        .btn.primary:hover { background: #e8eef7; }
+        .btn.quiet { background: rgba(255, 255, 255, 0.08); color: var(--text); border: 1px solid var(--line); }
+        .btn.quiet:hover { background: rgba(255, 255, 255, 0.14); }
 
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+        .gallery { position: relative; min-height: 380px; overflow: hidden; }
+        .gallery img { position: absolute; width: 46%; max-width: 210px; border-radius: 18px; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45); }
+        .gallery img:nth-child(1) { left: 8%; top: 34px; transform: rotate(-5deg); }
+        .gallery img:nth-child(2) { right: 8%; top: 70px; transform: rotate(4deg); }
 
-        .app-icon {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 28px;
-            margin: 0 auto 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
-        }
+        .contact { margin-top: 22px; background: var(--panel); border: 1px solid var(--line); border-radius: 24px; padding: 30px 32px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+        .contact h2 { font-size: 1.3rem; margin-bottom: 4px; }
+        .contact p { color: var(--soft); }
+        .contact strong { user-select: all; }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        footer { text-align: center; padding: 34px 20px 40px; color: var(--dim); font-size: 0.9rem; }
+        footer a { color: var(--soft); text-decoration: none; margin: 0 8px; }
+        footer a:hover { text-decoration: underline; }
 
-        .tagline {
-            color: #a0a0a0;
-            font-size: 1.1rem;
-        }
-
-        section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #667eea;
-        }
-
-        p {
-            color: #c0c0c0;
-            margin-bottom: 16px;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .faq-item {
-            margin-bottom: 24px;
-        }
-
-        .faq-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-
-        .faq-answer {
-            color: #a0a0a0;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
-        }
-
-        .feature {
-            background: rgba(102, 126, 234, 0.1);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .feature-icon {
-            font-size: 32px;
-            margin-bottom: 12px;
-        }
-
-        .feature-title {
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 4px;
-        }
-
-        .feature-desc {
-            font-size: 0.9rem;
-            color: #a0a0a0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #606060;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .links {
-            margin-top: 16px;
-        }
-
-        .links a {
-            margin: 0 12px;
+        @media (max-width: 760px) {
+            .game.golf { grid-template-columns: 1fr; }
+            .gallery { min-height: 300px; order: -1; }
+            .gallery img { width: 40%; }
+            .game-body { padding: 24px 22px 26px; }
+            .contact { padding: 24px 22px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="app-icon">🎯</div>
-            <h1>Ballistic: Brick Breaker</h1>
-            <p class="tagline">Aim, launch, and destroy in this addictive arcade game</p>
+            <div class="wordmark">Gunter Games</div>
+            <h1>Games that are easy to pick up and hard to put down.</h1>
+            <p class="lede">We're an independent studio making mobile games. Here you'll find our games, help for each one, and how to reach us.</p>
         </header>
 
-        <section>
-            <h2>About the Game</h2>
-            <p>Ballistic is a modern take on the classic brick breaker genre. Launch balls to destroy blocks, collect power-ups, and chase high scores across multiple game modes.</p>
-
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">🎮</div>
-                    <div class="feature-title">Multiple Modes</div>
-                    <div class="feature-desc">Classic, Blitz, Puzzle & more</div>
+        <main class="games">
+            <article class="game golf">
+                <div class="game-body">
+                    <div class="game-title">
+                        <img class="icon" src="golfrealms/icon.png" width="240" height="240" alt="Golf Realms app icon">
+                        <div>
+                            <div class="kicker">New &middot; iPhone</div>
+                            <h2>Golf Realms</h2>
+                        </div>
+                    </div>
+                    <p>Real golf in unreal places. Swing with one finger and watch the ball fly, curve and roll with real physics, on courses from seaside cliffs and dinosaur islands to rivers of lava and the Moon.</p>
+                    <ul class="facts">
+                        <li>20 courses</li>
+                        <li>7 mini golf parks</li>
+                        <li>Daily Cup</li>
+                        <li>Tour seasons</li>
+                        <li>Play friends online</li>
+                    </ul>
+                    <div class="actions">
+                        <a class="btn primary" href="https://apps.apple.com/app/id6822476463"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>App Store</a>
+                        <a class="btn quiet" href="golfrealms/">Help &amp; FAQ</a>
+                        <a class="btn quiet" href="golfrealms/privacy.html">Privacy</a>
+                    </div>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <div class="feature-title">Power-Ups</div>
-                    <div class="feature-desc">Fire, freeze, split & more</div>
+                <div class="gallery" aria-hidden="true">
+                    <img src="golfrealms/shots/01-flyC.jpg" width="360" height="782" alt="">
+                    <img src="golfrealms/shots/02-tracer.jpg" width="360" height="782" alt="">
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">🎨</div>
-                    <div class="feature-title">Customization</div>
-                    <div class="feature-desc">Skins, themes & effects</div>
+            </article>
+
+            <article class="game ballistic">
+                <div class="game-body">
+                    <div class="game-title">
+                        <img class="icon" src="ballistic/icon.png" width="240" height="240" alt="Ballistic: Brick Breaker app icon">
+                        <div>
+                            <div class="kicker">iPhone</div>
+                            <h2>Ballistic: Brick Breaker</h2>
+                        </div>
+                    </div>
+                    <p>Aim, launch and destroy. A modern take on the classic brick breaker: launch balls to smash blocks, collect power-ups and chase high scores across Classic, Blitz, Puzzle and more.</p>
+                    <div class="actions">
+                        <a class="btn primary" href="https://apps.apple.com/app/id6759799871"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>App Store</a>
+                        <a class="btn quiet" href="ballistic/">Help &amp; FAQ</a>
+                        <a class="btn quiet" href="privacy.html">Privacy</a>
+                    </div>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">🏆</div>
-                    <div class="feature-title">Leaderboards</div>
-                    <div class="feature-desc">Compete globally</div>
-                </div>
+            </article>
+        </main>
+
+        <section class="contact">
+            <div>
+                <h2>Contact &amp; support</h2>
+                <p>Email <strong>guntergamesdev@gmail.com</strong>. Tell us which game, your device and its iOS version. We usually reply within a couple of days.</p>
             </div>
-        </section>
-
-        <section>
-            <h2>Frequently Asked Questions</h2>
-
-            <div class="faq-item">
-                <p class="faq-question">How do I restore my purchases?</p>
-                <p class="faq-answer">Go to Settings in the app and tap "Restore Purchases". Make sure you're signed in with the same Apple ID you used for the original purchase.</p>
-            </div>
-
-            <div class="faq-item">
-                <p class="faq-question">How do I remove ads?</p>
-                <p class="faq-answer">You can purchase the "Remove Ads" option from the Shop. This is a one-time purchase that permanently removes all banner and interstitial ads.</p>
-            </div>
-
-            <div class="faq-item">
-                <p class="faq-question">My progress was lost. Can I recover it?</p>
-                <p class="faq-answer">Game progress is stored locally on your device. If you deleted the app or switched devices, progress cannot be recovered. We recommend keeping your device backed up.</p>
-            </div>
-
-            <div class="faq-item">
-                <p class="faq-question">How does the prestige system work?</p>
-                <p class="faq-answer">Once you reach a high enough lifetime score, you can prestige to reset your progress in exchange for permanent bonuses. Each prestige level gives you a 5% coin bonus.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Contact Support</h2>
-            <p>Having issues or have suggestions? We'd love to hear from you!</p>
-            <p style="margin-bottom: 24px;">Please include your device model and iOS version when reporting bugs.</p>
-            <a href="mailto:guntergamesdev@gmail.com" class="contact-btn">Email Support</a>
+            <a class="btn primary" href="mailto:guntergamesdev@gmail.com">Email us</a>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2025 Gunter Games. All rights reserved.</p>
-        <div class="links">
-            <a href="privacy.html">Privacy Policy</a>
+        &copy; 2026 Gunter Games
+        <div style="margin-top: 8px;">
+            <a href="golfrealms/privacy.html">Golf Realms privacy</a>
+            <a href="privacy.html">Ballistic privacy</a>
         </div>
     </footer>
 </body>
