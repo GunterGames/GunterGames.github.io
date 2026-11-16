@@ -164,3 +164,5 @@ xandr.com, 7353, RESELLER
 zetaglobal.net, 525, RESELLER
 zmaticoo.com, 5135195, RESELLER
 vungle.com, 6af4b1258a4ab1588b4adaa7, DIRECT, c107d686becd2d77
+# Meta Audience Network (AdMob mediation bidding, 2026-11-16): the Gunter Games business ID
+facebook.com, 1130075386386376, DIRECT, c3e20eee3f780d68
